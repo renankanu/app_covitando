@@ -1,3 +1,4 @@
+import 'package:appmodularmobx/app/repository/covidapi_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:appmodularmobx/app/app_widget.dart';
@@ -5,7 +6,9 @@ import 'package:appmodularmobx/app/modules/home/home_module.dart';
 
 class AppModule extends MainModule {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind((i) => CovidApiRepository()),
+      ];
 
   @override
   List<ModularRouter> get routers => [

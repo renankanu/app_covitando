@@ -19,30 +19,69 @@ final $HomeController = BindInject(
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$HomeController on _HomeControllerBase, Store {
-  final _$valueAtom = Atom(name: '_HomeControllerBase.value');
+  final _$currentIndexAtom = Atom(name: '_HomeControllerBase.currentIndex');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  int get currentIndex {
+    _$currentIndexAtom.reportRead();
+    return super.currentIndex;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set currentIndex(int value) {
+    _$currentIndexAtom.reportWrite(value, super.currentIndex, () {
+      super.currentIndex = value;
     });
+  }
+
+  final _$textFieldControllerAtom =
+      Atom(name: '_HomeControllerBase.textFieldController');
+
+  @override
+  TextEditingController get textFieldController {
+    _$textFieldControllerAtom.reportRead();
+    return super.textFieldController;
+  }
+
+  @override
+  set textFieldController(TextEditingController value) {
+    _$textFieldControllerAtom.reportWrite(value, super.textFieldController, () {
+      super.textFieldController = value;
+    });
+  }
+
+  final _$worldModelAtom = Atom(name: '_HomeControllerBase.worldModel');
+
+  @override
+  WorldModel get worldModel {
+    _$worldModelAtom.reportRead();
+    return super.worldModel;
+  }
+
+  @override
+  set worldModel(WorldModel value) {
+    _$worldModelAtom.reportWrite(value, super.worldModel, () {
+      super.worldModel = value;
+    });
+  }
+
+  final _$getInfoMundoAsyncAction =
+      AsyncAction('_HomeControllerBase.getInfoMundo');
+
+  @override
+  Future getInfoMundo() {
+    return _$getInfoMundoAsyncAction.run(() => super.getInfoMundo());
   }
 
   final _$_HomeControllerBaseActionController =
       ActionController(name: '_HomeControllerBase');
 
   @override
-  void increment() {
+  dynamic changePage(int index) {
     final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
-        name: '_HomeControllerBase.increment');
+        name: '_HomeControllerBase.changePage');
     try {
-      return super.increment();
+      return super.changePage(index);
     } finally {
       _$_HomeControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -51,7 +90,9 @@ mixin _$HomeController on _HomeControllerBase, Store {
   @override
   String toString() {
     return '''
-value: ${value}
+currentIndex: ${currentIndex},
+textFieldController: ${textFieldController},
+worldModel: ${worldModel}
     ''';
   }
 }
