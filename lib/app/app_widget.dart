@@ -8,9 +8,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: Modular.navigatorKey,
       title: 'Covitando',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(fontFamily: 'JosefinSans'),
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
     );

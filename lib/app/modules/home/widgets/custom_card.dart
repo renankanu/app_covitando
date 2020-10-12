@@ -5,7 +5,7 @@ class CustomCard extends StatelessWidget {
   final String value;
   final double width;
   final double height;
-  final Colors background;
+  final Color background;
 
   const CustomCard(
       {Key key,
@@ -19,15 +19,41 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(5),
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: Colors.red,
+        color: background,
         borderRadius: BorderRadius.all(
-          Radius.circular(6),
+          Radius.circular(10),
         ),
       ),
-      child: Text(title),
+      child: Stack(
+        children: [
+          Positioned(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 10,
+            child: Text(
+              value,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 36,
+                color: Colors.white70,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

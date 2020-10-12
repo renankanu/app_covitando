@@ -16,6 +16,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarBrightness: Brightness.dark,
     ));
@@ -32,6 +34,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   color: Colors.white,
                 ),
               ],
+            ),
+            SizedBox(
+              height: 14,
             ),
             Container(
               color: Colors.white,
@@ -55,12 +60,27 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 ),
               ),
             ),
-            CustomCard(
-              title: 'Cases',
-              value: '108',
-              width: 50,
-              height: 50,
+            SizedBox(
+              height: 20,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomCard(
+                    title: 'Cases',
+                    value: '108',
+                    width: width * 0.45,
+                    height: height * 0.15,
+                    background: kDeYork),
+                CustomCard(
+                  title: 'Cases',
+                  value: '108',
+                  width: width * 0.45,
+                  height: height * 0.15,
+                  background: kChestnutRose,
+                ),
+              ],
+            )
           ],
         ),
       ),
