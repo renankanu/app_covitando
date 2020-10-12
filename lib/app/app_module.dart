@@ -1,4 +1,4 @@
-import 'package:appmodularmobx/app/repository/covidapi_repository.dart';
+import 'package:appmodularmobx/app/repositories/covidapi_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:appmodularmobx/app/app_widget.dart';
