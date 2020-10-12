@@ -1,5 +1,7 @@
+import 'package:appmodularmobx/app/modules/home/widgets/custom_card.dart';
 import 'package:appmodularmobx/app/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'home_controller.dart';
 
@@ -14,6 +16,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.dark,
+    ));
     return Scaffold(
       backgroundColor: kEbonyClay,
       body: SafeArea(
@@ -49,7 +54,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   ],
                 ),
               ),
-            )
+            ),
+            CustomCard(
+              title: 'Cases',
+              value: '108',
+              width: 50,
+              height: 50,
+            ),
           ],
         ),
       ),
