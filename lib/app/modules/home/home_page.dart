@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'home_controller.dart';
 
@@ -36,14 +37,57 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           child: controller.isLoading == false
               ? Column(
                   children: <Widget>[
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.replay,
-                          size: 26,
-                          color: Colors.white,
-                        ),
-                      ],
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              controller.getInfoMundo();
+                            },
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Reload',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.replay,
+                                  size: 26,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Vacinas',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                SvgPicture.asset(
+                                  'assets/images/vaccine.svg',
+                                  width: 30,
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 14,
@@ -104,7 +148,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         CustomCard(
-                          title: 'Casos',
+                          title: 'Casos Hoje',
                           value: '${controller.worldModel.todayCases}',
                           width: width * 0.28,
                           height: height * 0.15,
@@ -113,8 +157,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           valueSize: 24,
                         ),
                         CustomCard(
-                          title: 'Mortes',
-                          value: '${controller.worldModel.deaths}',
+                          title: 'Mortes Hoje',
+                          value: '${controller.worldModel.todayDeaths}',
                           width: width * 0.28,
                           height: height * 0.15,
                           background: kDiSerria,
@@ -122,8 +166,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           valueSize: 24,
                         ),
                         CustomCard(
-                          title: 'Mortes',
-                          value: '${controller.worldModel.deaths}',
+                          title: 'Recuperados Hoje',
+                          value: '${controller.worldModel.todayRecovered}',
                           width: width * 0.28,
                           height: height * 0.15,
                           background: kHalfBaked,
@@ -131,7 +175,48 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           valueSize: 24,
                         ),
                       ],
-                    )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomCard(
+                          title: 'Ativos',
+                          value: '${controller.worldModel.active}',
+                          width: width * 0.45,
+                          height: height * 0.15,
+                          background: kChestnutRose,
+                          titleSize: 14,
+                          valueSize: 36,
+                        ),
+                        CustomCard(
+                          title: 'Criticos',
+                          value: '${controller.worldModel.critical}',
+                          width: width * 0.45,
+                          height: height * 0.15,
+                          background: kDiSerria,
+                          titleSize: 14,
+                          valueSize: 36,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: CustomCard(
+                        title: 'Testes Aplicados',
+                        value: '${controller.worldModel.tests}',
+                        width: width,
+                        height: height * 0.15,
+                        background: kDiSerria,
+                        titleSize: 14,
+                        valueSize: 36,
+                      ),
+                    ),
                   ],
                 )
               : Center(
