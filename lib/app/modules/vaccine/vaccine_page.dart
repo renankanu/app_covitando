@@ -20,7 +20,13 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          FlatButton(
+              onPressed: () {
+                controller.increment();
+              },
+              child: Text('click me'))
+        ],
       ),
     );
   }

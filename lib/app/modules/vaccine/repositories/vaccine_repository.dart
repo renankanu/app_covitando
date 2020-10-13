@@ -6,12 +6,12 @@ part 'vaccine_repository.g.dart';
 @Injectable()
 class VaccineRepository extends Disposable {
   final DioForNative client;
+  String baseUrl = 'https://disease.sh/v3/covid-19';
 
   VaccineRepository(this.client);
 
   Future fetchPost() async {
-    final response =
-        await client.get('https://jsonplaceholder.typicode.com/posts/1');
+    final response = await client.get('$baseUrl/vaccine');
     return response.data;
   }
 

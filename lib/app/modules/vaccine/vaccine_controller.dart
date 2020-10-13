@@ -15,6 +15,6 @@ abstract class _VaccineControllerBase with Store {
 
   @action
   void increment() {
-    value++;
+    repository.fetchPost();
   }
 }
