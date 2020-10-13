@@ -33,106 +33,112 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       return Scaffold(
         backgroundColor: kEbonyClay,
         body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: [
-                  Icon(
-                    Icons.replay,
-                    size: 26,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 14,
-              ),
-              Container(
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Info: Mundo"),
-                          Text(
-                              "Ultima atualização: ${formatDate(controller.worldModel.updated)}"),
-                        ],
+          child: controller.isLoading == false
+              ? Column(
+                  children: <Widget>[
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.replay,
+                          size: 26,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Container(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Info: Mundo"),
+                                Text(
+                                    "Ultima atualização: ${formatDate(controller.worldModel.updated)}"),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 12.0),
+                              child: Text('Escolher País'),
+                            )
+                          ],
+                        ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 12.0),
-                        child: Text('Escolher País'),
-                      )
-                    ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomCard(
+                          title: 'Casos',
+                          value: '${controller.worldModel.cases}',
+                          width: width * 0.45,
+                          height: height * 0.15,
+                          background: kDeYork,
+                          titleSize: 14,
+                          valueSize: 36,
+                        ),
+                        CustomCard(
+                          title: 'Mortes',
+                          value: '${controller.worldModel.deaths}',
+                          width: width * 0.45,
+                          height: height * 0.15,
+                          background: kChestnutRose,
+                          titleSize: 14,
+                          valueSize: 36,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomCard(
+                          title: 'Casos',
+                          value: '${controller.worldModel.todayCases}',
+                          width: width * 0.28,
+                          height: height * 0.15,
+                          background: kDanube,
+                          titleSize: 14,
+                          valueSize: 24,
+                        ),
+                        CustomCard(
+                          title: 'Mortes',
+                          value: '${controller.worldModel.deaths}',
+                          width: width * 0.28,
+                          height: height * 0.15,
+                          background: kDiSerria,
+                          titleSize: 14,
+                          valueSize: 24,
+                        ),
+                        CustomCard(
+                          title: 'Mortes',
+                          value: '${controller.worldModel.deaths}',
+                          width: width * 0.28,
+                          height: height * 0.15,
+                          background: kHalfBaked,
+                          titleSize: 14,
+                          valueSize: 24,
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              : Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CustomCard(
-                    title: 'Casos',
-                    value: '${controller.worldModel.cases}',
-                    width: width * 0.45,
-                    height: height * 0.15,
-                    background: kDeYork,
-                    titleSize: 14,
-                    valueSize: 36,
-                  ),
-                  CustomCard(
-                    title: 'Mortes',
-                    value: '${controller.worldModel.deaths}',
-                    width: width * 0.45,
-                    height: height * 0.15,
-                    background: kChestnutRose,
-                    titleSize: 14,
-                    valueSize: 36,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CustomCard(
-                    title: 'Casos',
-                    value: '${controller.worldModel.todayCases}',
-                    width: width * 0.28,
-                    height: height * 0.15,
-                    background: kDanube,
-                    titleSize: 14,
-                    valueSize: 24,
-                  ),
-                  CustomCard(
-                    title: 'Mortes',
-                    value: '${controller.worldModel.deaths}',
-                    width: width * 0.28,
-                    height: height * 0.15,
-                    background: kDiSerria,
-                    titleSize: 14,
-                    valueSize: 24,
-                  ),
-                  CustomCard(
-                    title: 'Mortes',
-                    value: '${controller.worldModel.deaths}',
-                    width: width * 0.28,
-                    height: height * 0.15,
-                    background: kHalfBaked,
-                    titleSize: 14,
-                    valueSize: 24,
-                  ),
-                ],
-              )
-            ],
-          ),
         ),
       );
     });

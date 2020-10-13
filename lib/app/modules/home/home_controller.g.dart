@@ -34,6 +34,21 @@ mixin _$HomeController on _HomeControllerBase, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: '_HomeControllerBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$getInfoMundoAsyncAction =
       AsyncAction('_HomeControllerBase.getInfoMundo');
 
@@ -45,7 +60,8 @@ mixin _$HomeController on _HomeControllerBase, Store {
   @override
   String toString() {
     return '''
-worldModel: ${worldModel}
+worldModel: ${worldModel},
+isLoading: ${isLoading}
     ''';
   }
 }

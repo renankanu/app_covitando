@@ -19,8 +19,13 @@ abstract class _HomeControllerBase with Store {
   @observable
   WorldModel worldModel;
 
+  @observable
+  bool isLoading = false;
+
   @action
   getInfoMundo() async {
+    isLoading = true;
     worldModel = await api.getInfoWorld();
+    isLoading = false;
   }
 }
