@@ -38,11 +38,11 @@ mixin _$VaccineController on _VaccineControllerBase, Store {
       ActionController(name: '_VaccineControllerBase');
 
   @override
-  void increment() {
+  void getVaccines() {
     final _$actionInfo = _$_VaccineControllerBaseActionController.startAction(
-        name: '_VaccineControllerBase.increment');
+        name: '_VaccineControllerBase.getVaccines');
     try {
-      return super.increment();
+      return super.getVaccines();
     } finally {
       _$_VaccineControllerBaseActionController.endAction(_$actionInfo);
     }

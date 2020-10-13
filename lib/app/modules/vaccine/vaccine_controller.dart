@@ -1,6 +1,6 @@
 import 'package:appmodularmobx/app/modules/vaccine/repositories/vaccine_repository.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
 
 part 'vaccine_controller.g.dart';
 
@@ -14,7 +14,7 @@ abstract class _VaccineControllerBase with Store {
   int value = 0;
 
   @action
-  void increment() {
+  void getVaccines() {
     repository.getVaccines();
   }
 }
