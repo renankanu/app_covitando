@@ -6,12 +6,11 @@ class CovidApiRepository {
   String baseUrl = 'https://disease.sh/v3/covid-19';
 
   Future<WorldModel> getInfoWorld() async {
-    Response response = await _dio.get('${baseUrl}/all');
-    if (response.statusCode == 200) {
+    try {
+      Response response = await _dio.get('$baseUrl/all');
       return WorldModel.fromJson(response.data);
-    }
-    if (response.statusCode != 200) {
-      throw Exception();
+    } on DioError catch (e) {
+      throw Exception(e);
     }
   }
 }

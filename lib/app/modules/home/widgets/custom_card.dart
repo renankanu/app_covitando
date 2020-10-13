@@ -6,6 +6,8 @@ class CustomCard extends StatelessWidget {
   final double width;
   final double height;
   final Color background;
+  final double titleSize;
+  final double valueSize;
 
   const CustomCard(
       {Key key,
@@ -13,7 +15,9 @@ class CustomCard extends StatelessWidget {
       this.height,
       this.background,
       this.title,
-      this.value})
+      this.value,
+      this.titleSize,
+      this.valueSize})
       : super(key: key);
 
   @override
@@ -35,7 +39,7 @@ class CustomCard extends StatelessWidget {
               title,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 14,
+                fontSize: titleSize,
                 color: Colors.black54,
               ),
             ),
@@ -47,7 +51,7 @@ class CustomCard extends StatelessWidget {
               value,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 36,
+                fontSize: valueSize,
                 color: Colors.white70,
               ),
             ),
