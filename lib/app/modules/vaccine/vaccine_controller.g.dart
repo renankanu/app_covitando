@@ -7,7 +7,7 @@ part of 'vaccine_controller.dart';
 // **************************************************************************
 
 final $VaccineController = BindInject(
-  (i) => VaccineController(),
+  (i) => VaccineController(i<VaccineRepository>()),
   singleton: true,
   lazy: true,
 );

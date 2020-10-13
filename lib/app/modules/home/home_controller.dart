@@ -1,6 +1,5 @@
 import 'package:appmodularmobx/app/models/world_model.dart';
 import 'package:appmodularmobx/app/repositories/covidapi_repository.dart';
-import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

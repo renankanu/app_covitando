@@ -1,5 +1,6 @@
+import 'package:dio/native_imp.dart';
+
 import 'vaccine_controller.dart';
-import 'package:dio/dio.dart';
 import 'repositories/vaccine_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -10,6 +11,7 @@ class VaccineModule extends ChildModule {
   List<Bind> get binds => [
         $VaccineController,
         $VaccineRepository,
+        Bind((i) => DioForNative()),
       ];
 
   @override

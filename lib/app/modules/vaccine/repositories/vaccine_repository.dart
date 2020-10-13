@@ -15,7 +15,6 @@ class VaccineRepository extends Disposable {
     return response.data;
   }
 
-  //dispose will be called automatically
   @override
   void dispose() {}
 }
