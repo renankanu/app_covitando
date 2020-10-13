@@ -10,7 +10,7 @@ class VaccineRepository extends Disposable {
 
   VaccineRepository(this.client);
 
-  Future fetchPost() async {
+  Future getVaccines() async {
     final response = await client.get('$baseUrl/vaccine');
     return response.data;
   }
