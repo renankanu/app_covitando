@@ -19,33 +19,39 @@ final $VaccineController = BindInject(
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$VaccineController on _VaccineControllerBase, Store {
-  final _$vaccineModelAtom = Atom(name: '_VaccineControllerBase.vaccineModel');
+  final _$valueAtom = Atom(name: '_VaccineControllerBase.value');
 
   @override
-  VaccineModel get vaccineModel {
-    _$vaccineModelAtom.reportRead();
-    return super.vaccineModel;
+  int get value {
+    _$valueAtom.reportRead();
+    return super.value;
   }
 
   @override
-  set vaccineModel(VaccineModel value) {
-    _$vaccineModelAtom.reportWrite(value, super.vaccineModel, () {
-      super.vaccineModel = value;
+  set value(int value) {
+    _$valueAtom.reportWrite(value, super.value, () {
+      super.value = value;
     });
   }
 
-  final _$getAllVaccinesAsyncAction =
-      AsyncAction('_VaccineControllerBase.getAllVaccines');
+  final _$_VaccineControllerBaseActionController =
+      ActionController(name: '_VaccineControllerBase');
 
   @override
-  Future getAllVaccines() {
-    return _$getAllVaccinesAsyncAction.run(() => super.getAllVaccines());
+  void increment() {
+    final _$actionInfo = _$_VaccineControllerBaseActionController.startAction(
+        name: '_VaccineControllerBase.increment');
+    try {
+      return super.increment();
+    } finally {
+      _$_VaccineControllerBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
   String toString() {
     return '''
-vaccineModel: ${vaccineModel}
+value: ${value}
     ''';
   }
 }

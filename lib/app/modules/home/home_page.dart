@@ -70,7 +70,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Modular.to.pushNamed('/vaccine');
+                            },
                             child: Row(
                               children: [
                                 Text(

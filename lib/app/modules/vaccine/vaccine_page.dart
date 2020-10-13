@@ -11,6 +11,8 @@ class VaccinePage extends StatefulWidget {
 }
 
 class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
+  //use 'controller' variable to access controller
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +20,7 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[
-          Center(
-            child: Text('aaaaa'),
-          )
-        ],
+        children: <Widget>[],
       ),
     );
   }

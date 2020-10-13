@@ -1,4 +1,5 @@
 import 'vaccine_controller.dart';
+import 'package:dio/dio.dart';
 import 'repositories/vaccine_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
