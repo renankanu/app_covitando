@@ -14,7 +14,7 @@ abstract class _VaccineControllerBase with Store {
   int value = 0;
 
   @action
-  void getVaccines() {
-    repository.getVaccines();
+  getVaccines() async {
+    await repository.getVaccines();
   }
 }

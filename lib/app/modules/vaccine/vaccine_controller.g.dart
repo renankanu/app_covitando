@@ -34,18 +34,12 @@ mixin _$VaccineController on _VaccineControllerBase, Store {
     });
   }
 
-  final _$_VaccineControllerBaseActionController =
-      ActionController(name: '_VaccineControllerBase');
+  final _$getVaccinesAsyncAction =
+      AsyncAction('_VaccineControllerBase.getVaccines');
 
   @override
-  void getVaccines() {
-    final _$actionInfo = _$_VaccineControllerBaseActionController.startAction(
-        name: '_VaccineControllerBase.getVaccines');
-    try {
-      return super.getVaccines();
-    } finally {
-      _$_VaccineControllerBaseActionController.endAction(_$actionInfo);
-    }
+  Future getVaccines() {
+    return _$getVaccinesAsyncAction.run(() => super.getVaccines());
   }
 
   @override
