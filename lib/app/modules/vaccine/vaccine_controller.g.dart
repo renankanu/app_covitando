@@ -19,18 +19,18 @@ final $VaccineController = BindInject(
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$VaccineController on _VaccineControllerBase, Store {
-  final _$valueAtom = Atom(name: '_VaccineControllerBase.value');
+  final _$vaccineModelAtom = Atom(name: '_VaccineControllerBase.vaccineModel');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  VaccineModel get vaccineModel {
+    _$vaccineModelAtom.reportRead();
+    return super.vaccineModel;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set vaccineModel(VaccineModel value) {
+    _$vaccineModelAtom.reportWrite(value, super.vaccineModel, () {
+      super.vaccineModel = value;
     });
   }
 
@@ -45,7 +45,7 @@ mixin _$VaccineController on _VaccineControllerBase, Store {
   @override
   String toString() {
     return '''
-value: ${value}
+vaccineModel: ${vaccineModel}
     ''';
   }
 }

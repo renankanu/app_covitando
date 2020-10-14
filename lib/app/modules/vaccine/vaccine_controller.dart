@@ -1,3 +1,4 @@
+import 'package:appmodularmobx/app/models/vaccine_model.dart';
 import 'package:appmodularmobx/app/modules/vaccine/repositories/vaccine_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
@@ -13,10 +14,10 @@ abstract class _VaccineControllerBase with Store {
   _VaccineControllerBase(this.repository);
 
   @observable
-  int value = 0;
+  VaccineModel vaccineModel;
 
   @action
   getVaccines() async {
-    await repository.getVaccines();
+    vaccineModel = await repository.getVaccines();
   }
 }

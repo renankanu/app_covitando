@@ -1,5 +1,7 @@
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:appmodularmobx/app/models/vaccine_model.dart';
+import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 part 'vaccine_repository.g.dart';
 
@@ -10,9 +12,13 @@ class VaccineRepository extends Disposable {
 
   VaccineRepository(this.client);
 
-  Future getVaccines() async {
-    final response = await client.get('$baseUrl/vaccine');
-    return response.data;
+  Future<VaccineModel> getVaccines() async {
+    try {
+      final response = await client.get('$baseUrl/vaccine');
+      return VaccineModel.fromJson(response.data);
+    } on DioError catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override
