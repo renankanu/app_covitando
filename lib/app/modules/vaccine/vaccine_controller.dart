@@ -9,7 +9,9 @@ class VaccineController = _VaccineControllerBase with _$VaccineController;
 
 abstract class _VaccineControllerBase with Store {
   final VaccineRepository repository;
+
   _VaccineControllerBase(this.repository);
+
   @observable
   int value = 0;
 
