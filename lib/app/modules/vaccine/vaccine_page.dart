@@ -100,18 +100,26 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
                 ),
               ],
             ),
+            Text(
+              'Fonte: ${controller.vaccineModel.source}',
+              style: TextStyle(color: Colors.white),
+            ),
+            Text(
+              'Total de candidatos: ${controller.vaccineModel.totalCandidates}',
+              style: TextStyle(color: Colors.white),
+            ),
             Expanded(
               child: controller.isLoading == false
                   ? ListView.builder(
                       itemCount: controller.vaccineModel.phases.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 4,
-                          ),
+                          padding: const EdgeInsets.only(
+                              left: 8, right: 8, bottom: 8),
                           child: Container(
-                            color: kDanube,
+                            decoration: BoxDecoration(
+                                color: kDanube,
+                                borderRadius: BorderRadius.circular(8)),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
@@ -120,13 +128,19 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
                                     Icons.medical_services,
                                     color: Colors.white,
                                   ),
-                                  Column(
-                                    children: [
-                                      Text(controller
-                                          .vaccineModel.phases[index].phase),
-                                      Text(controller.vaccineModel.phases[index]
-                                          .candidates),
-                                    ],
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(controller
+                                            .vaccineModel.phases[index].phase),
+                                        Text(controller.vaccineModel
+                                            .phases[index].candidates),
+                                      ],
+                                    ),
                                   )
                                 ],
                               ),
