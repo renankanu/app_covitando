@@ -1,3 +1,5 @@
+import 'package:appmodularmobx/app/modules/vaccine/widgets/data_widget.dart';
+import 'package:appmodularmobx/app/modules/vaccine/widgets/phase_widget.dart';
 import 'package:appmodularmobx/app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -37,9 +39,14 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
                     Positioned(
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -101,9 +108,14 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
                 ),
               ],
             ),
-            NewWidget(
-              controller: controller,
-            ),
+            if (isPhase)
+              PhaseWidget(
+                controller: controller,
+              ),
+            if (!isPhase)
+              DataWidget(
+                controller: controller,
+              ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
@@ -128,61 +140,5 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
         ),
       );
     });
-  }
-}
-
-class NewWidget extends StatelessWidget {
-  const NewWidget({
-    Key key,
-    @required this.controller,
-  }) : super(key: key);
-
-  final VaccineController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: controller.isLoading == false
-          ? ListView.builder(
-              itemCount: controller.vaccineModel.phases.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: kDanube, borderRadius: BorderRadius.circular(8)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.medical_services,
-                            color: Colors.white,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(controller
-                                    .vaccineModel.phases[index].phase),
-                                Text(controller
-                                    .vaccineModel.phases[index].candidates),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            )
-          : Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ),
-    );
   }
 }
