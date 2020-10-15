@@ -100,44 +100,46 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
                 ),
               ],
             ),
-            Visibility(
-              visible: controller.vaccineModel != null,
-              child: Expanded(
-                child: ListView.builder(
-                  itemCount: controller.vaccineModel.phases.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 4,
-                      ),
-                      child: Container(
-                        color: kDanube,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.medical_services,
-                                color: Colors.white,
-                              ),
-                              Column(
-                                children: [
-                                  Text(controller
-                                      .vaccineModel.phases[index].phase),
-                                  Text(controller
-                                      .vaccineModel.phases[index].candidates),
-                                ],
-                              )
-                            ],
+            Expanded(
+              child: controller.isLoading == false
+                  ? ListView.builder(
+                      itemCount: controller.vaccineModel.phases.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 4,
                           ),
-                        ),
+                          child: Container(
+                            color: kDanube,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.medical_services,
+                                    color: Colors.white,
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(controller
+                                          .vaccineModel.phases[index].phase),
+                                      Text(controller.vaccineModel.phases[index]
+                                          .candidates),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+                  : Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
-                    );
-                  },
-                ),
-              ),
-              replacement: Text('Nenhuma vacina em fase.'),
+                    ),
             )
           ],
         ),

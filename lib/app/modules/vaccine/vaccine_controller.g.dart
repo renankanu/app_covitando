@@ -34,6 +34,21 @@ mixin _$VaccineController on _VaccineControllerBase, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: '_VaccineControllerBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$getVaccinesAsyncAction =
       AsyncAction('_VaccineControllerBase.getVaccines');
 
@@ -45,7 +60,8 @@ mixin _$VaccineController on _VaccineControllerBase, Store {
   @override
   String toString() {
     return '''
-vaccineModel: ${vaccineModel}
+vaccineModel: ${vaccineModel},
+isLoading: ${isLoading}
     ''';
   }
 }

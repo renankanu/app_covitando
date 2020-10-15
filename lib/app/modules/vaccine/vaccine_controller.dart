@@ -11,13 +11,20 @@ class VaccineController = _VaccineControllerBase with _$VaccineController;
 abstract class _VaccineControllerBase with Store {
   final VaccineRepository repository;
 
-  _VaccineControllerBase(this.repository);
+  _VaccineControllerBase(this.repository) {
+    getVaccines();
+  }
 
   @observable
   VaccineModel vaccineModel;
 
+  @observable
+  bool isLoading = false;
+
   @action
   getVaccines() async {
+    isLoading = true;
     vaccineModel = await repository.getVaccines();
+    isLoading = false;
   }
 }
