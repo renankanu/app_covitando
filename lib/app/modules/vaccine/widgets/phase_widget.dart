@@ -1,5 +1,6 @@
 import 'package:appmodularmobx/app/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../vaccine_controller.dart';
 
@@ -29,9 +30,9 @@ class PhaseWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.medical_services,
-                            color: Colors.white,
+                          SvgPicture.asset(
+                            'assets/images/testTube.svg',
+                            height: 26,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
