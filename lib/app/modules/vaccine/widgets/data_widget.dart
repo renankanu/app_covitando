@@ -63,31 +63,47 @@ class _DataWidgetState extends State<DataWidget>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                              'Candidato: ${vaccineModel.data[index].candidate}'),
+                            'Candidato: ${vaccineModel.data[index].candidate}',
+                            style: TextStyle(color: Colors.white60),
+                          ),
                           SizedBox(
                             height: 8,
                           ),
                           Text(
-                              'Mecanismo: ${vaccineModel.data[index].mechanism}'),
+                            'Mecanismo: ${vaccineModel.data[index].mechanism}',
+                            style: TextStyle(color: Colors.white60),
+                          ),
                           SizedBox(
                             height: 8,
                           ),
                           Text(
-                              'Patrocinadores: ${vaccineModel.data[index].sponsors[0]}'),
-                          SizedBox(
-                            height: 8,
+                            'Patrocinadores: ${vaccineModel.data[index].sponsors[0]}',
+                            style: TextStyle(color: Colors.white60),
                           ),
-                          Text('Detalhes: ${vaccineModel.data[index].details}'),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                              'Fase de teste: ${vaccineModel.data[index].trialPhase}'),
                           SizedBox(
                             height: 8,
                           ),
                           Text(
-                              'Instituições: ${vaccineModel.data[index].institutions}'),
+                            'Detalhes: ${vaccineModel.data[index].details}',
+                            style: TextStyle(color: Colors.white60),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'Fase de teste: ${vaccineModel.data[index].trialPhase}',
+                            style: TextStyle(color: Colors.white60),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'Instituições: ${vaccineModel.data[index].institutions}',
+                            style: TextStyle(color: Colors.white60),
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
                         ],
                       ),
                     ),
