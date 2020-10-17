@@ -110,24 +110,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                     "Ultima atualização: ${formatDate(controller.worldModel.updated)}"),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 12.0),
-                              child: GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: kMartinique),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      'Escolher País',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
                           ],
                         ),
                       ),

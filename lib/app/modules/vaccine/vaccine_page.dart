@@ -78,7 +78,6 @@ class _VaccinePageState extends ModularState<VaccinePage, VaccineController> {
                   child: FlatButton(
                     onPressed: () {
                       setState(() {
-                        controller.getVaccines();
                         isPhase = true;
                       });
                     },
